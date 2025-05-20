@@ -99,6 +99,7 @@ REST API developed in Grails to manage messages.
     - `grails-app/controllers/com/moraes/MessageController.groovy`: REST controller.
     - `grails-app/controllers/com/moraes/UrlMappings.groovy`: URL mappings.
     - `src/test/groovy/com/moraes/MessageSpec.groovy`: Unit tests for the message entity.
+    - - `src/test/groovy/com/moraes/MessageRepositorySpec.groovy`: Unit tests for the message repository.
 
 ## Notes
 - The createdAt field is automatically set to the current date and time when the message is created.

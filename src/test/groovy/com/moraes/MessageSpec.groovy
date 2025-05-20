@@ -43,4 +43,32 @@ class MessageSpec extends Specification implements DomainUnitTest<Message> {
         !domain.validate(['content'])
         domain.errors['content'].code == 'blank'
     }
+
+    void "author can contain spaces and letters only"() {
+        when:
+        domain.author = "Valid Name"
+
+        then:
+        domain.validate(['author'])
+    }
+
+    void "content must not exceed max size"() {
+        when:
+        domain.content = "a" * 256
+
+        then:
+        !domain.validate(['content'])
+        domain.errors['content'].code == 'maxSize.exceeded'
+    }
+
+
+    void "author must not exceed max size"() {
+        when:
+        domain.author = "a" * 256
+
+        then:
+        !domain.validate(['author'])
+        domain.errors['author'].code == 'maxSize.exceeded'
+    }
+
 }
